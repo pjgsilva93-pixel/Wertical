@@ -2,64 +2,137 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="min-h-screen bg-white font-sans">
+
+      {/* HERO */}
+      <section className="relative flex flex-col items-center gap-12 px-16 py-[120px] overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none bg-[rgba(142,158,171,0.6)]" />
+
+        <div className="relative flex flex-col items-center gap-4 text-center">
+          <Image src="/Logo.svg" alt="Wertical" width={160} height={160} />
+          <h1 className="text-[48px] font-bold tracking-[-1.2px] leading-[1.1] text-black">
+            Wertical.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl font-light tracking-[-0.12px] text-white/80 mt-4">
+            UX / UI / GRAPHIC / VISUAL LAB
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+
+      </section>
+
+      {/* MARQUEE */}
+      <section className="bg-white flex flex-col items-center justify-center gap-8 py-12">
+        <p className="text-[36px] font-bold tracking-[-0.72px] text-black text-center">
+          You think big. We design smart.
+        </p>
+        <button className="bg-black text-white font-medium text-[18px] tracking-[-0.09px] px-6 py-3 rounded-xl cursor-pointer hover:bg-black/80 transition-colors">
+          Contact us
+        </button>
+      </section>
+
+      {/* FEATURE CARDS */}
+      <section className="bg-white flex gap-8 items-start justify-center pb-[120px] pt-10 px-16">
+
+        {/* Card 1 — Branding */}
+        <div className="flex flex-1 flex-col gap-8 items-start min-w-[336px] max-w-[388px]">
+          <div className="relative w-full h-[363px] rounded-2xl overflow-hidden shrink-0">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/brandingkinhausmockup.png"
+              alt="Branding — Kin Haus"
+              fill
+              className="object-cover"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+          <div className="flex flex-col gap-2">
+            <h5 className="text-[24px] font-semibold tracking-[-0.48px] text-black leading-[1.2]">Branding</h5>
+            <p className="text-[18px] font-medium tracking-[-0.09px] text-black/55 leading-[1.45]">
+              We create clear and consistent visual identities that express the essence of a brand and make it recognizable across every touchpoint.
+            </p>
+          </div>
         </div>
-      </main>
-    </div>
+
+        {/* Card 2 — UX/UI */}
+        <div className="flex flex-1 flex-col gap-8 items-start min-w-[336px] max-w-[388px]">
+          <div className="relative w-full h-[363px] rounded-2xl overflow-hidden shrink-0">
+            <Image
+              src="/UXUIMockup.png"
+              alt="UX / UI"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <h5 className="text-[24px] font-semibold tracking-[-0.48px] text-black leading-[1.2]">UX / UI</h5>
+            <p className="text-[18px] font-medium tracking-[-0.09px] text-black/55 leading-[1.45]">
+              We design intuitive digital experiences and functional interfaces, focused on usability, clarity, and seamless interaction.
+            </p>
+          </div>
+        </div>
+
+        {/* Card 3 — Graphic Design */}
+        <div className="flex flex-1 flex-col gap-8 items-start min-w-[336px] max-w-[388px]">
+          <div className="relative w-full h-[363px] rounded-2xl overflow-hidden shrink-0">
+            <Image
+              src="/GraphicDesignmockup.png"
+              alt="Graphic Design"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <h5 className="text-[24px] font-semibold tracking-[-0.48px] text-black leading-[1.2]">Graphic Design</h5>
+            <p className="text-[18px] font-medium tracking-[-0.09px] text-black/55 leading-[1.45]">
+              We develop visually impactful graphic solutions, combining concept, typography, and composition to communicate effectively.
+            </p>
+          </div>
+        </div>
+
+      </section>
+
+      {/* VALUE PROP */}
+      <section className="bg-[rgba(142,158,171,0.2)] px-8 py-20 md:px-16 md:py-24">
+        <div className="flex flex-col gap-12 md:flex-row md:items-start md:justify-between">
+
+          <h2 className="max-w-xs text-3xl font-bold leading-tight tracking-tight text-black md:text-4xl">
+            Ideas.<br />Designed.<br />Delivered.
+          </h2>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:max-w-2xl">
+
+            <div className="rounded-2xl bg-black/5 p-6">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="size-3 rounded-full bg-[#08487e] shrink-0" />
+                <h3 className="text-base font-semibold text-black">From idea to delivery</h3>
+              </div>
+              <p className="text-sm leading-relaxed text-black/55">
+                We help shape projects from early concepts to final execution, covering strategy, design, and everything in between, always with clarity and purpose.
+              </p>
+            </div>
+
+            <div className="rounded-2xl bg-black/5 p-6">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="size-3 rounded-full bg-[#08487e] shrink-0" />
+                <h3 className="text-base font-semibold text-black">From concept to launch</h3>
+              </div>
+              <p className="text-sm leading-relaxed text-black/55">
+                We support your project from ideation and concept development through to delivery, ensuring a clear direction at every stage.
+              </p>
+            </div>
+
+            <div className="rounded-2xl bg-black/5 p-6">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="size-3 rounded-full bg-[#08487e] shrink-0" />
+                <h3 className="text-base font-semibold text-black">Design & visual systems</h3>
+              </div>
+              <p className="text-sm leading-relaxed text-black/55">
+                We create all visual assets from brand identity and UI design to complete websites, built to be consistent, functional, and scalable.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
   );
 }
