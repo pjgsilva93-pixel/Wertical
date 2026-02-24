@@ -12,7 +12,8 @@
       "Bash(kill:*)",
       "Bash(pkill:*)",
       "Bash(npm install:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
