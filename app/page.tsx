@@ -1,23 +1,26 @@
 import Image from "next/image";
+import Nav from "./components/Nav";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white font-sans">
 
-      {/* HERO */}
-      <section className="relative flex flex-col items-center gap-12 px-16 py-[120px] overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none bg-[rgba(142,158,171,0.6)]" />
+      <Nav active="Home" />
 
-        <div className="relative flex flex-col items-center gap-4 text-center">
+      {/* HERO */}
+      <section className="relative flex flex-col items-center justify-center gap-6 px-16 py-[120px] overflow-hidden min-h-[500px]">
+        <Image src="/herobg.png" alt="" fill className="object-cover" />
+        <div className="absolute inset-0 bg-[rgba(142,158,171,0.6)]" />
+
+        <div className="relative z-10 flex flex-col items-center gap-4 text-center">
           <Image src="/Logo.svg" alt="Wertical" width={160} height={160} />
           <h1 className="text-[48px] font-bold tracking-[-1.2px] leading-[1.1] text-black">
             Wertical.
           </h1>
-          <p className="text-xl font-light tracking-[-0.12px] text-white/80 mt-4">
+          <p className="text-xl font-light tracking-[-0.12px] text-white/80">
             UX / UI / GRAPHIC / VISUAL LAB
           </p>
         </div>
-
       </section>
 
       {/* MARQUEE */}
@@ -31,10 +34,10 @@ export default function Home() {
       </section>
 
       {/* FEATURE CARDS */}
-      <section className="bg-white flex gap-8 items-start justify-center pb-[120px] pt-10 px-16">
+      <section className="bg-white flex flex-col md:flex-row gap-8 items-start justify-center pb-[120px] pt-10 px-8 md:px-16">
 
         {/* Card 1 — Branding */}
-        <div className="flex flex-1 flex-col gap-8 items-start min-w-[336px] max-w-[388px]">
+        <div className="flex w-full md:flex-1 flex-col gap-8 items-start md:min-w-[336px] md:max-w-[388px]">
           <div className="relative w-full h-[363px] rounded-2xl overflow-hidden shrink-0">
             <Image
               src="/brandingkinhausmockup.png"
@@ -52,7 +55,7 @@ export default function Home() {
         </div>
 
         {/* Card 2 — UX/UI */}
-        <div className="flex flex-1 flex-col gap-8 items-start min-w-[336px] max-w-[388px]">
+        <div className="flex w-full md:flex-1 flex-col gap-8 items-start md:min-w-[336px] md:max-w-[388px]">
           <div className="relative w-full h-[363px] rounded-2xl overflow-hidden shrink-0">
             <Image
               src="/UXUIMockup.png"
@@ -70,7 +73,7 @@ export default function Home() {
         </div>
 
         {/* Card 3 — Graphic Design */}
-        <div className="flex flex-1 flex-col gap-8 items-start min-w-[336px] max-w-[388px]">
+        <div className="flex w-full md:flex-1 flex-col gap-8 items-start md:min-w-[336px] md:max-w-[388px]">
           <div className="relative w-full h-[363px] rounded-2xl overflow-hidden shrink-0">
             <Image
               src="/GraphicDesignmockup.png"

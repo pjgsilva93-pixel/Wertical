@@ -5,7 +5,14 @@
       "Bash(npx --version:*)",
       "Bash(npx create-next-app:*)",
       "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes --name wertical)",
-      "Bash(sips:*)"
+      "Bash(sips:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(kill:*)",
+      "Bash(pkill:*)",
+      "Bash(npm install:*)",
+      "Bash(git add:*)"
     ]
   }
 }
