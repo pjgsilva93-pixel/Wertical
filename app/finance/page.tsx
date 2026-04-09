@@ -69,7 +69,7 @@ const defaultAccounts: Account[] = [
   {
     id: "revolut",
     name: "Revolut",
-    balance: 2376,
+    balance: 4725,
     currency: "EUR",
     category: "digital",
     description: "Digital bank — total across all pockets",
