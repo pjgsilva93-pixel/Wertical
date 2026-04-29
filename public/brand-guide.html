@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wertical — Brand Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --surface: #f4f4f4;
+      --neutral: #f2f2f2;
+      --accent: #08487e;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9f9f9;
+      color: #000;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding: 16px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    nav .logo { font-size: 15px; font-weight: 700; letter-spacing: -0.5px; }
+    nav .pills { display: flex; gap: 8px; }
+    nav .pill {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+      padding: 6px 14px; border-radius: 99px;
+      background: rgba(0,0,0,0.05); color: rgba(0,0,0,0.5);
+      text-decoration: none; transition: all 0.2s;
+      cursor: pointer;
+    }
+    nav .pill:hover { background: #000; color: #fff; }
+
+    /* LAYOUT */
+    .page { max-width: 1100px; margin: 0 auto; padding: 0 48px 120px; }
+
+    /* SECTION */
+    section { margin-top: 96px; }
+    .section-label {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(0,0,0,0.3);
+      margin-bottom: 32px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::after {
+      content: ''; flex: 1; height: 1px; background: rgba(0,0,0,0.08);
+    }
+
+    /* HERO */
+    .hero {
+      background: #000; border-radius: 24px;
+      padding: 80px 64px; margin-top: 48px;
+      position: relative; overflow: hidden;
+    }
+    .hero-dot {
+      position: absolute; border-radius: 50%;
+      background: rgba(255,255,255,0.03);
+    }
+    .hero-dot.a { width: 400px; height: 400px; top: -100px; right: -100px; }
+    .hero-dot.b { width: 200px; height: 200px; bottom: -60px; left: 40px; }
+    .hero-label {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.3);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 56px; font-weight: 700;
+      letter-spacing: -1.8px; line-height: 1.05;
+      color: #fff; max-width: 600px;
+    }
+    .hero p {
+      font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.5);
+      margin-top: 20px; letter-spacing: -0.2px; line-height: 1.6;
+      max-width: 420px;
+    }
+    .hero-tags {
+      display: flex; gap: 8px; margin-top: 36px; flex-wrap: wrap;
+    }
+    .hero-tag {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+      padding: 7px 16px; border-radius: 99px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* COLORS */
+    .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+    .color-card {
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .color-swatch { height: 100px; width: 100%; }
+    .color-info { padding: 12px 14px; background: #fff; }
+    .color-name { font-size: 12px; font-weight: 600; letter-spacing: -0.2px; }
+    .color-hex { font-size: 11px; color: rgba(0,0,0,0.4); margin-top: 2px; font-family: monospace; }
+
+    /* OPACITY ROW */
+    .opacity-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 24px; }
+    .opacity-chip {
+      height: 48px; border-radius: 10px;
+      flex: 1; min-width: 60px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: flex-end;
+      padding-bottom: 8px;
+    }
+    .opacity-chip span {
+      font-size: 9px; font-weight: 600; letter-spacing: 0.04em;
+      color: rgba(0,0,0,0.35); margin-top: 6px;
+    }
+
+    /* PROJECT ACCENTS */
+    .accent-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .accent-chip {
+      border-radius: 12px; padding: 14px 18px;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: -0.1px; color: rgba(255,255,255,0.8);
+      min-width: 120px;
+    }
+
+    /* TYPOGRAPHY */
+    .type-rows { display: flex; flex-direction: column; gap: 0; }
+    .type-row {
+      display: flex; align-items: baseline; gap: 24px;
+      padding: 24px 0; border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .type-row:last-child { border-bottom: none; }
+    .type-meta { width: 140px; flex-shrink: 0; }
+    .type-meta-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(0,0,0,0.3); }
+    .type-meta-spec { font-size: 11px; color: rgba(0,0,0,0.4); margin-top: 4px; font-family: monospace; }
+    .type-sample { flex: 1; }
+
+    /* LOGO */
+    .logo-section {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .logo-card {
+      border-radius: 20px; padding: 48px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(0,0,0,0.06);
+      position: relative; min-height: 200px;
+    }
+    .logo-card.light { background: #f4f4f4; }
+    .logo-card.dark { background: #000; }
+    .logo-card.accent-bg { background: #08487e; }
+    .logo-card-label {
+      position: absolute; bottom: 16px; left: 20px;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .logo-card.dark .logo-card-label,
+    .logo-card.accent-bg .logo-card-label { color: rgba(255,255,255,0.4); }
+    .logo-card.light .logo-card-label { color: rgba(0,0,0,0.3); }
+    .logo-text { font-size: 36px; font-weight: 700; letter-spacing: -1.5px; }
+    .logo-text.white { color: #fff; }
+    .logo-text.black { color: #000; }
+
+    /* COMPONENTS */
+    .component-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .component-card {
+      background: #fff; border-radius: 20px;
+      border: 1px solid rgba(0,0,0,0.06);
+      padding: 32px;
+    }
+    .comp-label {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(0,0,0,0.3);
+      margin-bottom: 20px;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background: #000; color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px; font-weight: 500; letter-spacing: -0.09px;
+      padding: 12px 24px; border-radius: 12px;
+      border: none; cursor: pointer; display: inline-block;
+    }
+    .btn-ghost {
+      background: transparent; color: #000;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px; font-weight: 600;
+      padding: 10px 20px; border-radius: 12px;
+      border: 1.5px solid rgba(0,0,0,0.12); cursor: pointer;
+      display: inline-block;
+    }
+
+    /* Badge */
+    .badge { display: inline-block; border-radius: 99px; }
+    .badge-default {
+      background: rgba(0,0,0,0.05);
+      color: rgba(0,0,0,0.55);
+      font-size: 11px; font-weight: 500;
+      padding: 5px 12px;
+    }
+    .badge-concept {
+      background: #fffbeb; color: #b45309;
+      border: 1px solid #fde68a;
+      font-size: 11px; font-weight: 600;
+      padding: 5px 12px;
+    }
+    .badge-collab {
+      background: #eff6ff; color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      font-size: 11px; font-weight: 600;
+      padding: 5px 12px;
+    }
+
+    /* Project card */
+    .project-card {
+      background: #fff; border-radius: 20px;
+      border: 1px solid rgba(0,0,0,0.08);
+      overflow: hidden; transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .project-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.2); }
+    .project-thumb {
+      height: 160px; display: flex; align-items: center; justify-content: center;
+      font-size: 28px; font-weight: 700; color: rgba(255,255,255,0.6);
+      letter-spacing: -1px;
+    }
+    .project-body { padding: 20px; }
+    .project-tags { display: flex; gap: 6px; margin-bottom: 12px; }
+    .project-title { font-size: 16px; font-weight: 700; letter-spacing: -0.4px; }
+    .project-desc { font-size: 13px; color: rgba(0,0,0,0.5); margin-top: 6px; line-height: 1.6; }
+    .project-skills {
+      display: flex; gap: 6px; flex-wrap: wrap;
+      margin-top: 14px; padding-top: 14px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+    .skill-tag {
+      background: rgba(0,0,0,0.04); color: rgba(0,0,0,0.5);
+      font-size: 11px; padding: 4px 10px; border-radius: 6px;
+    }
+
+    /* Value card */
+    .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .value-card {
+      background: rgba(0,0,0,0.03); border-radius: 16px; padding: 24px;
+    }
+    .value-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #08487e; margin-bottom: 14px;
+    }
+    .value-title { font-size: 15px; font-weight: 600; letter-spacing: -0.4px; }
+    .value-desc { font-size: 13px; color: rgba(0,0,0,0.5); margin-top: 8px; line-height: 1.65; }
+
+    /* MOTION */
+    .motion-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .motion-card {
+      background: #fff; border-radius: 16px;
+      border: 1px solid rgba(0,0,0,0.06);
+      padding: 28px 24px; text-align: center;
+    }
+    .motion-demo {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: #000; margin: 0 auto 16px;
+    }
+    .motion-demo.float { animation: float 3s ease-in-out infinite; }
+    .motion-demo.pop { animation: pop 2s cubic-bezier(0.34,1.56,0.64,1) infinite; }
+    .motion-demo.fade { animation: fade 2s ease-in-out infinite; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(1deg); }
+    }
+    @keyframes pop {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(0.85); opacity: 0.6; }
+    }
+    @keyframes fade {
+      0%, 100% { opacity: 1; transform: translateY(0) scale(1); }
+      50% { opacity: 0.3; transform: translateY(6px) scale(0.97); }
+    }
+    .motion-name { font-size: 13px; font-weight: 600; letter-spacing: -0.3px; }
+    .motion-spec { font-size: 11px; color: rgba(0,0,0,0.4); margin-top: 4px; font-family: monospace; }
+
+    /* VOICE */
+    .voice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .voice-card {
+      border-radius: 16px; padding: 28px;
+      border: 1px solid rgba(0,0,0,0.06);
+      background: #fff;
+    }
+    .voice-card blockquote {
+      font-size: 15px; font-weight: 500;
+      line-height: 1.65; letter-spacing: -0.2px;
+      color: rgba(0,0,0,0.8);
+      border-left: 2px solid #000; padding-left: 16px;
+    }
+    .voice-source { font-size: 11px; color: rgba(0,0,0,0.35); margin-top: 12px; }
+
+    /* SPACING VISUAL */
+    .spacing-row { display: flex; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+    .spacing-block-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .spacing-block { background: #000; border-radius: 4px; width: 40px; }
+    .spacing-label { font-size: 10px; font-weight: 600; color: rgba(0,0,0,0.4); text-align: center; font-family: monospace; }
+
+    /* RADIUS VISUAL */
+    .radius-row { display: flex; gap: 16px; align-items: flex-end; flex-wrap: wrap; }
+    .radius-block {
+      width: 80px; height: 80px;
+      background: #000;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 768px) {
+      .page { padding: 0 20px 80px; }
+      nav { padding: 16px 20px; }
+      .hero { padding: 48px 28px; }
+      .hero h1 { font-size: 36px; }
+      .logo-section, .component-grid, .voice-grid { grid-template-columns: 1fr; }
+      .value-grid, .motion-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Wertical</div>
+  <div class="pills">
+    <a class="pill" href="#colors">Colors</a>
+    <a class="pill" href="#type">Type</a>
+    <a class="pill" href="#logo">Logo</a>
+    <a class="pill" href="#components">Components</a>
+    <a class="pill" href="#voice">Voice</a>
+    <a class="pill" href="#motion">Motion</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-dot a"></div>
+    <div class="hero-dot b"></div>
+    <div class="hero-label">Brand Guide · 2026</div>
+    <h1>Ideas.<br>Designed.<br>Delivered.</h1>
+    <p>A reference for how Wertical looks, sounds, and moves — across every touchpoint.</p>
+    <div class="hero-tags">
+      <div class="hero-tag">UX / UI</div>
+      <div class="hero-tag">Graphic Design</div>
+      <div class="hero-tag">Branding</div>
+      <div class="hero-tag">Development</div>
+    </div>
+  </div>
+
+  <!-- COLORS -->
+  <section id="colors">
+    <div class="section-label">01 — Colors</div>
+
+    <div class="color-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background:#000;"></div>
+        <div class="color-info">
+          <div class="color-name">Black</div>
+          <div class="color-hex">#000000</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#fff; border-bottom: 1px solid rgba(0,0,0,0.06);"></div>
+        <div class="color-info">
+          <div class="color-name">White</div>
+          <div class="color-hex">#FFFFFF</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#f4f4f4;"></div>
+        <div class="color-info">
+          <div class="color-name">Surface Grey</div>
+          <div class="color-hex">#F4F4F4</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#f2f2f2;"></div>
+        <div class="color-info">
+          <div class="color-name">Neutral</div>
+          <div class="color-hex">#F2F2F2</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#08487e;"></div>
+        <div class="color-info">
+          <div class="color-name">Brand Blue</div>
+          <div class="color-hex">#08487E</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Opacity scale -->
+    <div style="margin-top:32px;">
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(0,0,0,0.3);margin-bottom:12px;">Black opacity scale</div>
+      <div class="opacity-row">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;">
+          <div style="height:40px;width:100%;border-radius:8px;background:rgba(0,0,0,0.6);"></div>
+          <span style="font-size:9px;font-weight:600;color:rgba(0,0,0,0.35);">60%</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;">
+          <div style="height:40px;width:100%;border-radius:8px;background:rgba(0,0,0,0.5);"></div>
+          <span style="font-size:9px;font-weight:600;color:rgba(0,0,0,0.35);">50%</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;">
+          <div style="height:40px;width:100%;border-radius:8px;background:rgba(0,0,0,0.4);"></div>
+          <span style="font-size:9px;font-weight:600;color:rgba(0,0,0,0.35);">40%</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;">
+          <div style="height:40px;width:100%;border-radius:8px;background:rgba(0,0,0,0.3);"></div>
+          <span style="font-size:9px;font-weight:600;color:rgba(0,0,0,0.35);">30%</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;">
+          <div style="height:40px;width:100%;border-radius:8px;background:rgba(0,0,0,0.2);"></div>
+          <span style="font-size:9px;font-weight:600;color:rgba(0,0,0,0.35);">20%</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;">
+          <div style="height:40px;width:100%;border-radius:8px;background:rgba(0,0,0,0.1);"></div>
+          <span style="font-size:9px;font-weight:600;color:rgba(0,0,0,0.35);">10%</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;">
+          <div style="height:40px;width:100%;border-radius:8px;background:rgba(0,0,0,0.05);"></div>
+          <span style="font-size:9px;font-weight:600;color:rgba(0,0,0,0.35);">5%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project accents -->
+    <div style="margin-top:32px;">
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(0,0,0,0.3);margin-bottom:12px;">Project accents</div>
+      <div class="accent-row">
+        <div class="accent-chip" style="background:#4A47F2;">Acai</div>
+        <div class="accent-chip" style="background:#2C6E49;">Kin Haus</div>
+        <div class="accent-chip" style="background:#1DB954;">Spotify</div>
+        <div class="accent-chip" style="background:#0A1A06;">OuterSignal</div>
+        <div class="accent-chip" style="background:#1A1918;">Fold Studio</div>
+        <div class="accent-chip" style="background:#0F1117;">Finance App</div>
+        <div class="accent-chip" style="background:#eeede9;color:rgba(0,0,0,0.6);">AI Pitch Deck</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY -->
+  <section id="type">
+    <div class="section-label">02 — Typography</div>
+
+    <div style="background:#fff;border-radius:20px;border:1px solid rgba(0,0,0,0.06);padding:8px 32px;">
+      <div class="type-rows">
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-meta-label">Hero H1</div>
+            <div class="type-meta-spec">48px · 700 · -1.2px</div>
+          </div>
+          <div class="type-sample" style="font-size:48px;font-weight:700;letter-spacing:-1.2px;line-height:1.1;">You think big.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-meta-label">Section H2</div>
+            <div class="type-meta-spec">36px · 700 · tight</div>
+          </div>
+          <div class="type-sample" style="font-size:36px;font-weight:700;letter-spacing:-0.8px;line-height:1.15;">Our Work</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-meta-label">Card H3</div>
+            <div class="type-meta-spec">24px · 600 · -0.48px</div>
+          </div>
+          <div class="type-sample" style="font-size:24px;font-weight:600;letter-spacing:-0.48px;line-height:1.2;">From idea to delivery</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-meta-label">Lead Body</div>
+            <div class="type-meta-spec">16px · 600 · -0.1px</div>
+          </div>
+          <div class="type-sample" style="font-size:16px;font-weight:600;letter-spacing:-0.1px;line-height:1.65;">We design smart. From idea to delivery, from concept to launch.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-meta-label">Body</div>
+            <div class="type-meta-spec">14px · 500</div>
+          </div>
+          <div class="type-sample" style="font-size:14px;font-weight:500;color:rgba(0,0,0,0.6);line-height:1.8;">We create clear and consistent visual identities that express the essence of a brand and make it recognizable across every touchpoint.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-meta-label">CTA Button</div>
+            <div class="type-meta-spec">18px · 500 · -0.09px</div>
+          </div>
+          <div class="type-sample"><button class="btn-primary">Get in touch</button></div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-meta-label">Label / Micro</div>
+            <div class="type-meta-spec">10px · 600 · widest</div>
+          </div>
+          <div class="type-sample" style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(0,0,0,0.3);">Brand Identity · UX / UI Design</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO -->
+  <section id="logo">
+    <div class="section-label">03 — Logo Usage</div>
+    <div class="logo-section">
+      <div class="logo-card light">
+        <img src="/Logo.svg" width="80" height="80" alt="Wertical logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <div class="logo-text black" style="display:none;">W</div>
+        <div class="logo-card-label">On Light</div>
+      </div>
+      <div class="logo-card dark">
+        <img src="/Logo.svg" width="80" height="80" alt="Wertical logo" style="filter:invert(1)" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <div class="logo-text white" style="display:none;">W</div>
+        <div class="logo-card-label">On Dark</div>
+      </div>
+      <div class="logo-card light" style="flex-direction:column;gap:24px;align-items:flex-start;justify-content:center;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <img src="/Logo.svg" width="32" height="32" onerror="this.style.display='none'"/>
+          <span style="font-size:15px;font-weight:700;letter-spacing:-0.5px;">Wertical</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <img src="/Logo.svg" width="48" height="48" onerror="this.style.display='none'"/>
+          <span style="font-size:20px;font-weight:700;letter-spacing:-0.8px;">Wertical</span>
+        </div>
+        <div class="logo-card-label">Nav + Feature sizes</div>
+      </div>
+      <div class="logo-card accent-bg">
+        <img src="/Logo.svg" width="80" height="80" alt="Wertical logo" style="filter:brightness(0) invert(1)" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <div class="logo-text white" style="display:none;">W</div>
+        <div class="logo-card-label">On Brand Blue</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPONENTS -->
+  <section id="components">
+    <div class="section-label">04 — Components</div>
+
+    <!-- Buttons & Badges -->
+    <div class="component-grid" style="margin-bottom:16px;">
+      <div class="component-card">
+        <div class="comp-label">Buttons</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+          <button class="btn-primary">Get in touch</button>
+          <button class="btn-ghost">View work</button>
+        </div>
+      </div>
+      <div class="component-card">
+        <div class="comp-label">Badges</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+          <span class="badge badge-default">Brand Identity</span>
+          <span class="badge badge-default">Web Design</span>
+          <span class="badge badge-concept">Concept</span>
+          <span class="badge badge-collab">Collaboration</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project card -->
+    <div class="component-grid" style="margin-bottom:16px;">
+      <div class="component-card" style="padding:0;overflow:hidden;">
+        <div class="comp-label" style="padding:24px 24px 0;">Project Card</div>
+        <div style="padding:16px 24px 24px;">
+          <div class="project-card">
+            <div class="project-thumb" style="background:linear-gradient(135deg,#4A47F2,#2c29c2);">Acai</div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="badge badge-default">Brand Identity</span>
+                <span class="badge badge-default">UX / UI</span>
+              </div>
+              <div class="project-title">Acai Design System</div>
+              <div class="project-desc">A bold visual identity built for digital-first brands.</div>
+              <div class="project-skills">
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">Brand</span>
+                <span class="skill-tag">UI Design</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="component-card">
+        <div class="comp-label">Value Cards</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div class="value-card">
+            <div class="value-dot"></div>
+            <div class="value-title">From idea to delivery</div>
+            <div class="value-desc">We help shape projects from early concept to final execution.</div>
+          </div>
+          <div class="value-card">
+            <div class="value-dot"></div>
+            <div class="value-title">Design & visual systems</div>
+            <div class="value-desc">Built to be consistent, functional, and scalable.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Radius & Spacing -->
+    <div class="component-grid">
+      <div class="component-card">
+        <div class="comp-label">Border Radius</div>
+        <div style="display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap;">
+          <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+            <div style="width:72px;height:72px;background:#000;border-radius:6px;"></div>
+            <span style="font-size:10px;font-weight:600;color:rgba(0,0,0,0.35);">md · 6px</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+            <div style="width:72px;height:72px;background:#000;border-radius:12px;"></div>
+            <span style="font-size:10px;font-weight:600;color:rgba(0,0,0,0.35);">xl · 12px</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+            <div style="width:72px;height:72px;background:#000;border-radius:16px;"></div>
+            <span style="font-size:10px;font-weight:600;color:rgba(0,0,0,0.35);">2xl · 16px</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+            <div style="width:72px;height:72px;background:#000;border-radius:99px;"></div>
+            <span style="font-size:10px;font-weight:600;color:rgba(0,0,0,0.35);">full · pill</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="component-card">
+        <div class="comp-label">Spacing Scale</div>
+        <div style="display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+            <div style="background:#000;border-radius:4px;width:32px;height:8px;"></div>
+            <span style="font-size:9px;font-weight:600;color:rgba(0,0,0,0.35);">2 · 8px</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+            <div style="background:#000;border-radius:4px;width:32px;height:16px;"></div>
+            <span style="font-size:9px;font-weight:600;color:rgba(0,0,0,0.35);">4 · 16px</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+            <div style="background:#000;border-radius:4px;width:32px;height:24px;"></div>
+            <span style="font-size:9px;font-weight:600;color:rgba(0,0,0,0.35);">6 · 24px</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+            <div style="background:#000;border-radius:4px;width:32px;height:32px;"></div>
+            <span style="font-size:9px;font-weight:600;color:rgba(0,0,0,0.35);">8 · 32px</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+            <div style="background:#000;border-radius:4px;width:32px;height:48px;"></div>
+            <span style="font-size:9px;font-weight:600;color:rgba(0,0,0,0.35);">12 · 48px</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+            <div style="background:#000;border-radius:4px;width:32px;height:64px;"></div>
+            <span style="font-size:9px;font-weight:600;color:rgba(0,0,0,0.35);">16 · 64px</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOICE -->
+  <section id="voice">
+    <div class="section-label">05 — Brand Voice</div>
+    <div class="voice-grid">
+      <div class="voice-card">
+        <blockquote>"We design smart. From idea to delivery, from concept to launch."</blockquote>
+        <div class="voice-source">Homepage — positioning statement</div>
+      </div>
+      <div class="voice-card">
+        <blockquote>"You think big, we create it."</blockquote>
+        <div class="voice-source">Homepage — hero headline</div>
+      </div>
+      <div class="voice-card">
+        <blockquote>"I care deeply about how things look, how they feel, and how they work for real people."</blockquote>
+        <div class="voice-source">About — founder statement</div>
+      </div>
+      <div class="voice-card">
+        <blockquote>"We create intuitive digital experiences focused on usability, clarity, and seamless interaction."</blockquote>
+        <div class="voice-source">Services — UX / UI</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px;">
+      <div style="background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,0.06);padding:20px;text-align:center;">
+        <div style="font-size:22px;font-weight:700;letter-spacing:-0.5px;">Direct</div>
+        <div style="font-size:12px;color:rgba(0,0,0,0.4);margin-top:6px;line-height:1.5;">Short, purposeful sentences</div>
+      </div>
+      <div style="background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,0.06);padding:20px;text-align:center;">
+        <div style="font-size:22px;font-weight:700;letter-spacing:-0.5px;">Confident</div>
+        <div style="font-size:12px;color:rgba(0,0,0,0.4);margin-top:6px;line-height:1.5;">Statements, not questions</div>
+      </div>
+      <div style="background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,0.06);padding:20px;text-align:center;">
+        <div style="font-size:22px;font-weight:700;letter-spacing:-0.5px;">Human</div>
+        <div style="font-size:12px;color:rgba(0,0,0,0.4);margin-top:6px;line-height:1.5;">Written by a person, not a brand</div>
+      </div>
+      <div style="background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,0.06);padding:20px;text-align:center;">
+        <div style="font-size:22px;font-weight:700;letter-spacing:-0.5px;">Smart</div>
+        <div style="font-size:12px;color:rgba(0,0,0,0.4);margin-top:6px;line-height:1.5;">References process and intent</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOTION -->
+  <section id="motion">
+    <div class="section-label">06 — Motion</div>
+    <div class="motion-grid">
+      <div class="motion-card">
+        <div class="motion-demo float"></div>
+        <div class="motion-name">logoFloat</div>
+        <div class="motion-spec">5s · ease-in-out · ∞</div>
+      </div>
+      <div class="motion-card">
+        <div class="motion-demo pop"></div>
+        <div class="motion-name">logoEntrance</div>
+        <div class="motion-spec">0.8s · spring(0.34,1.56)</div>
+      </div>
+      <div class="motion-card">
+        <div class="motion-demo fade"></div>
+        <div class="motion-name">fadeInUp</div>
+        <div class="motion-spec">ease-out · +32px → 0</div>
+      </div>
+    </div>
+    <div style="margin-top:16px;background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,0.06);padding:24px;">
+      <div style="font-size:13px;font-weight:600;letter-spacing:-0.2px;margin-bottom:8px;">Principle</div>
+      <div style="font-size:13px;color:rgba(0,0,0,0.5);line-height:1.7;">Motion is subtle, purposeful, and never distracting. Entrance animations signal intent; hover states confirm interaction. No animation exists without reason.</div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
