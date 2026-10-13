@@ -1,7 +1,10 @@
 import { NextResponse } from 'next/server'
+import { readFileSync } from 'fs'
+import { join } from 'path'
 
 export async function GET() {
-  return new NextResponse('<h1>Workout PJ is here</h1>', {
+  const html = readFileSync(join(process.cwd(), 'public', 'workout-pj', 'index.html'), 'utf-8')
+  return new NextResponse(html, {
     headers: { 'content-type': 'text/html; charset=utf-8' },
   })
 }
