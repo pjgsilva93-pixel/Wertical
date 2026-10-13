@@ -1,7 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async rewrites() {
+    return [
+      {
+        source: "/workout-pj",
+        destination: "/workout-pj/index.html",
+      },
+    ];
+  },
 };
 
 export default nextConfig;
